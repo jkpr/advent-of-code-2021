@@ -1,0 +1,7 @@
+black
+flake8
+click
+pandas
+numpy
+scipy
+networkx
