@@ -24,7 +24,7 @@ def part2(lines: list[str]):
         distance = int(parts[1])
         if direction == "forward":
             length += distance
-            depth += aim*distance
+            depth += aim * distance
         elif direction == "down":
             aim += distance
         elif direction == "up":

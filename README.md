@@ -36,3 +36,7 @@ The CLI is common for each day. The main patterns for options are:
 # Day 1
 
 The best way I know to iterate a window through a list is to `zip(my_list, my_list[1:])`. Iterating through sums of triples is the same as iterating through `zip(my_list, my_list[1:], my_list[2:], my_list[3:])` and comparing the first three to the last three.
+
+# Day 2
+
+Nothing too special today...
