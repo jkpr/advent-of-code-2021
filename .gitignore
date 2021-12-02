@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 env/
 .tool-versions
+input.txt
+
