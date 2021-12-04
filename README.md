@@ -52,6 +52,15 @@ num_as_int = int(num_as_str, base=2)
 
 # Day 4
 
+Sometimes we have to break input up based on a blank line (here the game boards are separated by a blank line). This is how I have done that with `lines` that is a list of lines:
+
+```python
+result = []
+chunks = "\n".join(lines).split("\n\n")
+for chunk in chunks:
+    result.append(chunk.split("\n"))
+```
+
 I could have modeled this exactly as the problem described, with Board objects and crossed off numbers. However, I went a more "functional" route, and built up two datastructures:
 
 - all possible bingos per board, stored as sets
