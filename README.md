@@ -39,4 +39,43 @@ The best way I know to iterate a window through a list is to `zip(my_list, my_li
 
 # Day 2
 
-Nothing too special today...
+Keeping track of state while looping through the lines of the input. Fairly straightforward.
+
+# Day 3
+
+Interesting problem. For my input, part 2 filters down to a single number for both oxygen and CO2. Therefore, we don't need to keep track of the bits as we go, just take the single number as the result. To take a string and convert it to a number:
+
+```python
+num_as_str = "101010111"
+num_as_int = int(num_as_str, base=2)
+```
+
+# Day 4
+
+I could have modeled this exactly as the problem described, with Board objects and crossed off numbers. However, I went a more "functional" route, and built up two datastructures:
+
+- all possible bingos per board, stored as sets
+- each board as a set of numbers
+
+For each new number, I made a set of called numbers:
+
+```python
+called = set(numbers[:i])
+```
+
+I made a set and compared that against all possible bingos. 
+
+```python
+for board_bingos in all_board_bingos:
+    for bingo in board_bingos:
+        if called & bingo == bingo:
+            ...  # Winner!
+```
+
+When there was a match, I started with that board's set of numbers and took away the called set of numbers:
+
+```python
+left_over = board_numbers - called
+```
+
+Then performed the calculation with `left_over` and `numbers[:i]` to get the final score.
