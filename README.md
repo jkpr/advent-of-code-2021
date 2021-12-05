@@ -88,3 +88,25 @@ left_over = board_numbers - called
 ```
 
 Then performed the calculation with `left_over` and `numbers[:i]` to get the final score.
+
+# Day 5
+
+Knowing how to parse input helped get a quick result. Using [`re.findall`][5a] can get all numbers found in a line. Specifically, `re.findall(r"\d+", line)` returns a list of all integers.
+
+Finally, [`defaultdict`][5b] remains one the best ways to model a position. In this problem, we can add 1 to every position that every line crosses. The position should be a tuple for the coordinates.
+
+```python
+field = defaultdict(int)
+for vent line in all vent lines:
+    for each (x, y) position along a vent line:
+        field[(x, y)] += 1
+```
+
+Then return the count of positions that have a value of 2 or more:
+
+```python
+sum(value >= 2 for value in field.values())
+```
+
+[5a]: https://docs.python.org/3/library/re.html#re.findall
+[5b]: https://docs.python.org/3/library/collections.html#collections.defaultdict
