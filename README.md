@@ -110,3 +110,19 @@ sum(value >= 2 for value in field.values())
 
 [5a]: https://docs.python.org/3/library/re.html#re.findall
 [5b]: https://docs.python.org/3/library/collections.html#collections.defaultdict
+
+# Day 6
+
+This is exponential growth, and the key here is to not model each fish (you quickly run out of memory), but to model the lanternfish by internal clock.
+
+So instead of
+
+```
+3,4,3,1,2
+``
+
+we have a dictionary of counts, keyed by the clock:
+
+```
+{3: 2, 4: 1, 1:1, 2:1}
+```
