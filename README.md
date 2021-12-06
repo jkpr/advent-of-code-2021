@@ -119,7 +119,7 @@ So instead of
 
 ```
 3,4,3,1,2
-``
+```
 
 we have a dictionary of counts, keyed by the clock:
 
