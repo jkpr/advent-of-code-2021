@@ -126,3 +126,7 @@ we have a dictionary of counts, keyed by the clock:
 ```
 {3: 2, 4: 1, 1:1, 2:1}
 ```
+
+# Day 7
+
+The sum of numbers `1..N` is `N * (N+1) / 2`. This formula was used to find the ideal horizontal position.
