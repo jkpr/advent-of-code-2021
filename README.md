@@ -130,3 +130,7 @@ we have a dictionary of counts, keyed by the clock:
 # Day 7
 
 The sum of numbers `1..N` is `N * (N+1) / 2`. This formula was used to find the ideal horizontal position.
+
+# Day 8
+
+A set can be hashable if it is a `frozenset`! Therefore it can be a key in a dictionary.
