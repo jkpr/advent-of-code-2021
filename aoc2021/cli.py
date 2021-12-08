@@ -47,7 +47,7 @@ def read_lines(input_file: Path) -> list[str]:
     is_flag=False,
     flag_value=DEFAULT_TEST_FILE,
     help=(
-        'If not supplied, use real puzzle '
+        "If not supplied, use real puzzle "
         'data from "input.txt". If given as a flag, use '
         f'"{DEFAULT_TEST_FILE}". If a value is given, it is '
         'treated as a suffix, as in "test_input[SUFFIX].txt".'
@@ -75,10 +75,10 @@ def cli(
     if not silent:
         setup_logging()
     name = f"..day{str(day).zfill(2)}"
+    input_file = get_input_file(name[2:], test_input)
     if alternate:
         name = f"{name}.alternate"
     module = importlib.import_module(name, package=__name__)
-    input_file = get_input_file(name[2:], test_input)
     lines = read_lines(input_file)
     logger.info(f"Puzzle input: {input_file!s}")
     start = time.perf_counter()
