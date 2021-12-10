@@ -133,4 +133,12 @@ The sum of numbers `1..N` is `N * (N+1) / 2`. This formula was used to find the 
 
 # Day 8
 
-A set can be hashable if it is a `frozenset`! Therefore it can be a key in a dictionary.
+A set can be hashable if it is a [`frozenset`][8a]! Therefore it can be a key in a dictionary.
+
+[8a]: https://docs.python.org/3/library/stdtypes.html#frozenset
+
+# Day 9
+
+A fun area search with recursion. In order to get the most common, I used [`collections.Counter.most_common()`][9a] which returns a list of tuples (the value and the count of the value).
+
+[9a]: https://docs.python.org/3/library/collections.html#collections.Counter.most_common
