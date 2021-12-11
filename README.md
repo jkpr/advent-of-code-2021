@@ -146,3 +146,15 @@ A fun area search with recursion. In order to get the most common, I used [`coll
 # Day 10
 
 Tried to be more expressive rather than concise. Fairly straightforward LIFO stack stuff.
+
+# Day 11
+
+Probably the only interesting thing is how I iterated through neighbors:
+
+```python
+def neighbors(i: int, j: int, dim: int) -> tuple[int, int]:
+    for d in product([-1, 0, 1], repeat=2):
+        if d != (0, 0):
+            if (new_i := i + d[0]) in range(dim) and (new_j := j + d[1]) in range(dim):
+                yield new_i, new_j
+```
