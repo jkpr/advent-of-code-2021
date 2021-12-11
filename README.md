@@ -142,3 +142,7 @@ A set can be hashable if it is a [`frozenset`][8a]! Therefore it can be a key in
 A fun area search with recursion. In order to get the most common, I used [`collections.Counter.most_common()`][9a] which returns a list of tuples (the value and the count of the value).
 
 [9a]: https://docs.python.org/3/library/collections.html#collections.Counter.most_common
+
+# Day 10
+
+Tried to be more expressive rather than concise. Fairly straightforward LIFO stack stuff.
