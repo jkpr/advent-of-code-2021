@@ -167,7 +167,7 @@ A BFS typically has a deque, popping the next one to examine from the left side,
 
 # Day 13
 
-I used the trick for splitting into chunks from [Day 4][#day-4].
+I used the trick for splitting into chunks from [Day 4](#day-4).
 
 Today I used [`dataclass`][13a] with `frozen=True` to represent a point. This is so that the dataclass can be a member of a set.
 
