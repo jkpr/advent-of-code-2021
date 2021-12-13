@@ -55,10 +55,8 @@ num_as_int = int(num_as_str, base=2)
 Sometimes we have to break input up based on a blank line (here the game boards are separated by a blank line). This is how I have done that with `lines` that is a list of lines:
 
 ```python
-result = []
 chunks = "\n".join(lines).split("\n\n")
-for chunk in chunks:
-    result.append(chunk.split("\n"))
+result = [chunk.strip().splitlines() for chunk in chunks]
 ```
 
 I could have modeled this exactly as the problem described, with Board objects and crossed off numbers. However, I went a more "functional" route, and built up two datastructures:
@@ -166,3 +164,18 @@ The `__init__.py` solution has a breadth-first search (BFS). The `alternate.py` 
 A BFS typically has a deque, popping the next one to examine from the left side, and adding new ones to search to the right side. The search algorithm runs until there are no more items in the deque. For my first pass, I used a standard list (which must resize / reorder as things are added and removed from the first index). When I switched to [`collections.deque`][12a], the execution time decreased by 50%.
 
 [12a]: https://docs.python.org/3/library/collections.html#collections.deque
+
+# Day 13
+
+I used the trick for splitting into chunks from [Day 4][#day-4].
+
+Today I used `dataclass` with `frozen=True` to represent a point. This is so that the dataclass can be a member of a set.
+
+Another useful feature of dataclasses is [`replace`][13b] which makes a new object of the same class, but with replaced properties. For example:
+
+```python
+replace(point, **{'x': new_x})
+```
+
+[13a]: https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass
+[13b]: https://docs.python.org/3/library/dataclasses.html#dataclasses.replace
