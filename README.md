@@ -158,3 +158,11 @@ def neighbors(i: int, j: int, dim: int) -> tuple[int, int]:
             if (new_i := i + d[0]) in range(dim) and (new_j := j + d[1]) in range(dim):
                 yield new_i, new_j
 ```
+
+# Day 12
+
+The `__init__.py` solution has a breadth-first search (BFS). The `alternate.py` has a recursive depth-first search (DFS) solution.
+
+A BFS typically has a deque, popping the next one to examine from the left side, and adding new ones to search to the right side. The search algorithm runs until there are no more items in the deque. For my first pass, I used a standard list (which must resize / reorder as things are added and removed from the first index). When I switched to [`collections.deque`][12a], the execution time decreased by 50%.
+
+[12a]: https://docs.python.org/3/library/collections.html#collections.deque
