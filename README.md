@@ -179,3 +179,34 @@ replace(point, **{'x': new_x})
 
 [13a]: https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass
 [13b]: https://docs.python.org/3/library/dataclasses.html#dataclasses.replace
+
+# Day 14
+
+The main solution at `__init__.py` goes from one polymer to the next generation polymer. An interesting recursive solution, using caching, is at `alternate.py`.
+
+In both, I keep track of counts of bigrams (two consecutive letters).
+
+The [`functools.cache`][14a] is handy because it can short-circuit calculating results. This is useful, and it helps often, in recursion because the code often visits the same areas of the search space multiple times.
+
+```python
+from collections import Counter
+import functools
+
+
+@functools.cache
+def next_gen_recursive(bigram: str, times: int) -> Counter:
+    if times == 0:
+        return Counter([bigram])
+    middle = rules[bigram]
+    left = next_gen_recursive(f"{bigram[0]}{middle}", times - 1)
+    right = next_gen_recursive(f"{middle}{bigram[1]}", times - 1)
+    return left + right
+```
+
+Take note that `functools.cache` is new as of Python 3.9. It is equivalent to `functools.lru_cache(maxsize=None)`.
+
+Without caching, each bigram results in two calls to the recursive function. For part two, this would have been repeated 40 times, so there would have been `2^40 = 1,099,511,627,776` calls to the recursive function for each bigram in the starting polymer.
+
+With caching on the other hand, with my input data, the cache info is `CacheInfo(hits=3140, misses=3291, maxsize=None, currsize=3291)`. So the function gets called only `3140 + 3291 = 6431` times.
+
+[14a]: https://docs.python.org/3/library/functools.html#functools.cache
