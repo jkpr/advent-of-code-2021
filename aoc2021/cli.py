@@ -1,4 +1,5 @@
 import importlib
+from itertools import compress
 import logging
 from pathlib import Path
 import time
@@ -36,10 +37,16 @@ def read_lines(input_file: Path) -> list[str]:
     help="Which day's code to run.",
 )
 @click.option(
+    "--part1",
+    "-1",
+    is_flag=True,
+    help="Run part 1",
+)
+@click.option(
     "--part2",
     "-2",
     is_flag=True,
-    help="Run part 2. If not supplied, run part 1.",
+    help="Run part 2",
 )
 @click.option(
     "--test-input",
@@ -67,6 +74,7 @@ def read_lines(input_file: Path) -> list[str]:
 )
 def cli(
     day: int,
+    part1: bool,
     part2: bool,
     test_input: str,
     alternate: bool,
@@ -82,12 +90,15 @@ def cli(
     lines = read_lines(input_file)
     logger.info(f"Puzzle input: {input_file!s}")
     start = time.perf_counter()
-    if part2:
-        logger.info("Running part 2")
-        result = module.part2(lines)
-    else:
-        logger.info("Running part 1")
-        result = module.part1(lines)
+    parts = ", ".join(
+        compress(["part 1", "part 2"], [part1 or not part2, part2 or not part1])
+    )
+    logger.info("Running %s", parts)
+    if part1 or not part2:
+        result1 = module.part1(lines)
+        print("Returned result for part 1:", result1)
+    if part2 or not part1:
+        result2 = module.part2(lines)
+        print("Returned result for part 2:", result2)
     end = time.perf_counter()
-    print("Returned result:", result)
     logger.info(f"Time elapsed: {end-start:.4f} seconds")
