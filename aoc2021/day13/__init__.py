@@ -29,16 +29,18 @@ class Origami:
         new_points = set(fold.apply(point) for point in self.points)
         return Origami(new_points)
 
-    def display(self):
+    def __str__(self):
+        display = ["\n", "\n"]
         max_x = max(point.x for point in self.points)
         max_y = max(point.y for point in self.points)
         for y in range(max_y + 1):
             for x in range(max_x + 1):
                 if Point(x, y) in self.points:
-                    print("#", end="")
+                    display.append("#")
                 else:
-                    print(" ", end="")
-            print()
+                    display.append(" ")
+            display.append("\n")
+        return "".join(display)
 
     def __len__(self):
         return len(self.points)
@@ -70,4 +72,4 @@ def part2(lines: list[str]):
     origami, folds = setup(lines)
     for fold in folds:
         origami = origami.do_fold(fold)
-    origami.display()
+    return str(origami)
