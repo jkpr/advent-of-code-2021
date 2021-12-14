@@ -1,4 +1,4 @@
-from aoc2021.day12.utils import already_has_extra_visit, get_edges
+from .utils import already_has_extra_visit, get_edges
 
 
 def dfs(

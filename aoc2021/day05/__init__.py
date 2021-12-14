@@ -1,9 +1,5 @@
-from collections import (
-    defaultdict,
-)
-from re import (
-    findall,
-)
+from collections import defaultdict
+from re import findall
 
 
 def count_vents(lines: list[str], diagonals: bool):

@@ -1,4 +1,4 @@
-from aoc2021.utils import lines_to_int
+from ..utils import lines_to_int
 
 
 def part1(lines: list[str]):

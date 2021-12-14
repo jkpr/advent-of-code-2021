@@ -1,10 +1,5 @@
-from collections import (
-    Counter,
-    defaultdict,
-)
-from math import (
-    prod,
-)
+from collections import Counter, defaultdict
+from math import prod
 
 
 def get_depths(lines) -> dict[tuple[int, int], int]:

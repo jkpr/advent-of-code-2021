@@ -1,6 +1,4 @@
-from collections import (
-    Counter,
-)
+from collections import Counter
 
 
 def spawn_lanternfish(lines: list[str], days: int) -> int:

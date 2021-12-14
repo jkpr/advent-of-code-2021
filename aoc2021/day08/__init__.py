@@ -1,9 +1,5 @@
-from itertools import (
-    chain,
-)
-from re import (
-    findall,
-)
+from itertools import chain
+from re import findall
 
 
 def part1(lines: list[str]):
