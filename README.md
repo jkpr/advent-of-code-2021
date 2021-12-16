@@ -241,3 +241,50 @@ This becomes a directed graph, where for each node, A -> B, the weight of the ed
 This information is saved in the graph.
 
 [15a]: https://networkx.org/documentation/stable/index.html
+
+# Day 16
+
+There were a lot of fun things today. First, I got to use Python 3.10's flagship feature, the [match-case construct][16a], a.k.a. structural pattern matching. In this case, it wasn't too fancy, just a match-case on the packet type, so just matching literal values. From what I have read, it is a well-thought out feature.
+
+Another interesting feature is postponed evaluation of annotations, [PEP 563][16b]. This allows us to write:
+
+```python
+from __future__ import annotations
+
+
+class A:
+
+    @classmethod
+    def build(cls) -> A:
+        ...
+```
+
+instead of
+
+```python
+class A:
+
+    @classmethod
+    def build(cls) -> "A":
+        ...
+```
+
+Hopefully someday in the future, this will be the default and the `from __future__ import annotations` will no longer be needed.
+
+Finally, I used data classes to parse out the ticker tape of packets. There are `Packet`, `Header`, and `Literal` classes.
+Each class has a `from_tape` method that parses out an instance of that class from the ticker tape starting at index `i`.
+For example,
+
+```python
+class Header:
+    ...
+    @classmethod
+    def from_tape(cls, tape: str, i: int) -> Header:
+        ...
+```
+
+This leads to some simple solutions for part 1 and part 2.
+
+
+[16a]: https://www.python.org/dev/peps/pep-0636/
+[16b]: https://www.python.org/dev/peps/pep-0563/
