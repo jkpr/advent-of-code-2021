@@ -210,3 +210,34 @@ Without caching, each bigram results in two calls to the recursive function. For
 With caching on the other hand, with my input data, the cache info is `CacheInfo(hits=3140, misses=3291, maxsize=None, currsize=3291)`. So the function gets called only `3140 + 3291 = 6431` times.
 
 [14a]: https://docs.python.org/3/library/functools.html#functools.cache
+
+# Day 15
+
+Python has a beautiful package called [`networkx`][15a] and it saves the day today. It can build a graph and it has algorithms for finding shortest path length from different nodes. It has Dijkstra's shortest path algorithm, separate methods to get the path and also the path length.
+
+In terms of modeling, consider a smaller example
+
+```
+19
+24
+```
+
+This becomes a directed graph, where for each node, A -> B, the weight of the edge is the value at B. Something like this:
+
+```
+         9
+        --->
+  (0,0) <--- (0,1)
+  |  ^    1   | ^
+ 2|  |        | |
+  |  |1      4| | 9
+  |  |        | |
+  v  |   4    v |
+  (1,0) ---> (1,1)
+        <---
+          2
+```
+
+This information is saved in the graph.
+
+[15a]: https://networkx.org/documentation/stable/index.html
