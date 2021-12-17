@@ -288,3 +288,26 @@ This leads to some simple solutions for part 1 and part 2.
 
 [16a]: https://www.python.org/dev/peps/pep-0636/
 [16b]: https://www.python.org/dev/peps/pep-0563/
+
+# Day 17
+
+Probably for the first time ever, I use [`itertools.count()`][17a]. I think it is easier to do:
+
+```python
+for n in count():
+    ...
+```
+
+than
+
+```python
+n = 0
+while True:
+    ...
+    n += 1
+```
+
+
+
+
+[17a]: https://docs.python.org/3/library/itertools.html#itertools.count
