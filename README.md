@@ -294,7 +294,7 @@ This leads to some simple solutions for part 1 and part 2.
 Probably for the first time ever, I use [`itertools.count()`][17a]. I think it is easier to do:
 
 ```python
-for n in count():
+for n in itertools.count():
     ...
 ```
 
@@ -321,12 +321,15 @@ for i, line in enumerate(lines):
 dim = i + 1, j + 1
 ```
 
-- Advance one generation to the next by some rules.
-- Count the generations with 
+- Count the generations with [`itertools.count()`][25a]
+- When some condition is met, then return `i`.
+- Advance one generation to the next by some puzzle-specific rules.
 
 ```python
-for i in itertools.count(1):
-    ...
+for i in itertools.count():
+    if done(next_sea_floor):
+        return i
+    next_sea_floor = get_next(sea_floor)
 ```
 
-- When some condition is met, then return `i`.
+[25a]: https://docs.python.org/3/library/itertools.html#itertools.count
