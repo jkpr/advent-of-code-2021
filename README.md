@@ -307,7 +307,26 @@ while True:
     n += 1
 ```
 
-
-
-
 [17a]: https://docs.python.org/3/library/itertools.html#itertools.count
+
+# Day 25
+
+- Build up a grid with a `dict()` and keep the dimensions:
+
+```python
+sea_floor = {}
+for i, line in enumerate(lines):
+    for j, ch in enumerate(line):
+        sea_floor[(i, j)] = ch
+dim = i + 1, j + 1
+```
+
+- Advance one generation to the next by some rules.
+- Count the generations with 
+
+```python
+for i in itertools.count(1):
+    ...
+```
+
+- When some condition is met, then return `i`.
