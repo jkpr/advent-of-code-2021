@@ -342,6 +342,22 @@ Used `itertools.combinations()` to look at every combination of two scanners.
 
 [19a]: https://docs.python.org/3/library/typing.html#type-aliases
 
+# Day 20
+
+Did a fairly interesting thing to get the enhancement algorithm index:
+
+```python
+...
+index_bits = (
+    int((i + di, j + dj) in image)
+    if min_i <= i + di <= max_i and min_j <= j + dj <= max_j
+    else default
+    for di, dj in product([1, 0, -1], repeat=2)
+)
+index = sum(1 << n if bit else 0 for n, bit in enumerate(index_bits))
+```
+
+Using `product` this way gets the pixels in the right order (least significant to most significant). Of course `1 << n` could be `2 ** n`.
 
 # Day 25
 
