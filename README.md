@@ -324,6 +324,25 @@ Finally, [`itertools.combinations`][18d] is perfect for looking at all sets of t
 [18c]: https://docs.python.org/3/library/functions.html#eval
 [18d]: https://docs.python.org/3/library/itertools.html#itertools.combinations
 
+# Day 19
+
+This is the hardest challenge of Advent of Code 2021.
+
+Interesting Python things:
+
+I made a type alias for typing annotations:
+
+```python
+Point = tuple[int, int, int]
+```
+
+`Point` is much easier / shorter than `tuple[int, int, int]`. See [typing documentation for aliases][19a].
+
+Used `itertools.combinations()` to look at every combination of two scanners.
+
+[19a]: https://docs.python.org/3/library/typing.html#type-aliases
+
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
