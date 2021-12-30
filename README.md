@@ -357,7 +357,9 @@ index_bits = (
 index = sum(1 << n if bit else 0 for n, bit in enumerate(index_bits))
 ```
 
-Using `product` this way gets the pixels in the right order (least significant to most significant). Of course `1 << n` could be `2 ** n`.
+Using [`itertools.product()`][20a] this way gets the pixels in the right order (least significant to most significant). Of course `1 << n` could be `2 ** n`.
+
+[20a]: https://docs.python.org/3/library/itertools.html#itertools.product
 
 # Day 25
 
