@@ -309,6 +309,21 @@ while True:
 
 [17a]: https://docs.python.org/3/library/itertools.html#itertools.count
 
+# Day 18
+
+I use regex to look for numbers before and after pairs that are nested more than 4 deep. I use the `start` and `end` properties of [`re.Match`][18a] to get the indices where the match starts and stops.
+
+I use [`itertools.accumulate()`][18b] to add the input snail numbers consecutively. That is definitely the right tool for the job.
+
+In order to get the magnitude, I [`eval`][18c] the final string to turn it into nested lists with ints.
+
+Finally, [`itertools.combinations`][18d] is perfect for looking at all sets of two snail numbers in order to get the maximum magnitude.
+
+[18a]: https://docs.python.org/3/library/re.html#match-objects
+[18b]: https://docs.python.org/3/library/itertools.html#itertools.accumulate
+[18c]: https://docs.python.org/3/library/functions.html#eval
+[18d]: https://docs.python.org/3/library/itertools.html#itertools.combinations
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
