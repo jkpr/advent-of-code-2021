@@ -361,6 +361,25 @@ Using [`itertools.product()`][20a] this way gets the pixels in the right order (
 
 [20a]: https://docs.python.org/3/library/itertools.html#itertools.product
 
+# Day 21
+
+Used a [namedtuple][21a] to represent the game state.
+
+Got to use a [functools.cache][21b] for part 2 since the number of game paths is too large to simulate individually.
+By the way, my cache info is:
+
+```
+CacheInfo(hits=765674, misses=43220, maxsize=None, currsize=43220)
+```
+
+This code runs in about 1.2 seconds.
+
+I also get to use [`functools.reduce()`][21c] for the first time. This is to add up all the win tallies (tuples) from the next 27 Dirac game states.
+
+[21a]: https://docs.python.org/3/library/collections.html#collections.namedtuple
+[21b]: https://docs.python.org/3/library/functools.html#functools.cache
+[21c]: https://docs.python.org/3/library/functools.html#functools.reduce
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
