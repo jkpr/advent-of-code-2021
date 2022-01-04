@@ -380,6 +380,22 @@ I also get to use [`functools.reduce()`][21c] for the first time. This is to add
 [21b]: https://docs.python.org/3/library/functools.html#functools.cache
 [21c]: https://docs.python.org/3/library/functools.html#functools.reduce
 
+# Day 22
+
+I define a `Cube` class that supports intersection and subtraction with other cubes.
+
+- Intersection returns another `Cube`.
+- Subtraction returns a list of from 0 up to 6 other cuboids. 
+  - Subtraction returns a list of 0—an empty list—cuboids if the subtracted amount completely covers the original cuboid. 
+  - Otherwise, I divide up the remaining volume up into cuboids using the planes of the intersection cube faces as dividing lines.
+
+I use the builtin [`slice()`][22a] to pass to a list object and be flexible with how many items I am taking.
+
+- `my_list[slice(0, 20)]` takes the first 20 items.
+- `my_list[slice(0, None)]` takes all items in the list.
+
+[22a]: https://docs.python.org/3/library/functions.html#slice
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
