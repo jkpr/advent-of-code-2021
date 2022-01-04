@@ -1,5 +1,5 @@
 from itertools import accumulate, combinations
-from re import findall, search, split
+from re import findall, search
 
 
 def explode(line: str) -> str:
