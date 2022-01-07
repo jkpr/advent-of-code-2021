@@ -418,6 +418,20 @@ while queue:
 
 [23a]: https://docs.python.org/3/library/heapq.html
 
+# Day 24
+
+Not too much interesting in terms of Python. This is a challenge in deciphering what the instructions are doing.
+
+We need to iterate over the input (`lines`) in chunks of 18. That can be done like this:
+
+```python
+chunk_size = 18
+for i in range(len(lines) // chunk_size):
+    instructions = lines[slice(i * chunk_size, (i + 1) * chunk_size)]
+```
+
+This does not get a partial chunk at the end if there is one.
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
