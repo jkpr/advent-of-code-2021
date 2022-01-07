@@ -3,7 +3,7 @@ import heapq
 """
 PATH_DATA
 
-key: 
+key:
     tuple(
         hallway spot,
         room number,
@@ -11,7 +11,7 @@ key:
 
 value:
     tuple(
-        distance from hallway spot to first spot in room (index 0 of the room), 
+        distance from hallway spot to first spot in room (index 0 of the room),
         [
             hallway spot that must be open,
             another hallway spot that must be open,
@@ -54,7 +54,7 @@ PATH_DATA = {
 """
 ROOM_TO_ROOM_DATA
 
-key: 
+key:
     tuple(
         room number,
         room number,
@@ -206,7 +206,7 @@ def done(state, room_depth):
 
 def to_diagram(state, room_depth):
     diagram = ["#" * 13]
-    hallway = f"".join(state_to_letter.get(i, ".") for i in state[:LEN_HALLWAY])
+    hallway = "".join(state_to_letter.get(i, ".") for i in state[:LEN_HALLWAY])
     diagram.append(
         f"#{hallway[:2]}.{hallway[2]}.{hallway[3]}.{hallway[4]}.{hallway[5:]}#"
     )
