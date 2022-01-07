@@ -396,6 +396,28 @@ I use the builtin [`slice()`][22a] to pass to a list object and be flexible with
 
 [22a]: https://docs.python.org/3/library/functions.html#slice
 
+# Day 23
+
+Today we implement Dijkstra's shortest path algorithm.
+In order to do that, we need a priority queue so that the next thing we pop off to search has the shortest edge weight (energy) of everything we know about.
+This is where Python's [`heapq`][23a] comes in. It works on a run-of-the-mill list.
+
+For example:
+
+```python
+import heapq
+
+
+queue = []
+start = get_start_configuration()
+heapq.heappush(queue, (0, start))
+while queue:
+    next_item = heapq.heappop(queue)
+    ...
+```
+
+[23a]: https://docs.python.org/3/library/heapq.html
+
 # Day 25
 
 - Build up a grid with a `dict()` and keep the dimensions:
